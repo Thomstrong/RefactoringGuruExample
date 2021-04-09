@@ -1,13 +1,14 @@
 package refactoring_guru.adapter.example;
 
+import refactoring_guru.adapter.example.adapters.RoundHoleAdapter;
 import refactoring_guru.adapter.example.adapters.SquarePegAdapter;
+import refactoring_guru.adapter.example.round.RoundHole;
 import refactoring_guru.adapter.example.round.RoundPeg;
 import refactoring_guru.adapter.example.square.SquarePeg;
-import refactoring_guru.adapter.example.round.RoundHole;
 
 /**
  * EN: Somewhere in client code...
- *
+ * <p>
  * RU: Где-то в клиентском коде...
  */
 public class Demo {
@@ -33,10 +34,19 @@ public class Demo {
         SquarePegAdapter smallSqPegAdapter = new SquarePegAdapter(smallSqPeg);
         SquarePegAdapter largeSqPegAdapter = new SquarePegAdapter(largeSqPeg);
         if (hole.fits(smallSqPegAdapter)) {
-            System.out.println("Square peg w2 fits round hole r5.");
+            System.out.println("Square peg w2 fits round hole r5 use sqPegAdapter.");
         }
         if (!hole.fits(largeSqPegAdapter)) {
-            System.out.println("Square peg w20 does not fit into round hole r5.");
+            System.out.println("Square peg w20 does not fit into round hole r5 use sqPegAdapter.");
+        }
+
+        RoundHoleAdapter roundHoleAdapter = new RoundHoleAdapter(hole);
+        if (roundHoleAdapter.canInsert(smallSqPeg)) {
+            System.out.println("Square peg w2 fits round hole r5 use roundHoleAdapter.");
+        }
+
+        if (!roundHoleAdapter.canInsert(largeSqPeg)) {
+            System.out.println("Square peg w20 does not fit into round hole r5 use roundHoleAdapter.");
         }
     }
 }

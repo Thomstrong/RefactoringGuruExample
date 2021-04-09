@@ -10,14 +10,15 @@ public class CutCommand extends Command {
 
     @Override
     public boolean execute() {
-        if (editor.textField.getSelectedText().isEmpty()) return false;
+        if (editor.textField.getSelectedText().isEmpty()) {
+            return false;
+        }
 
         backup();
         String source = editor.textField.getText();
         editor.clipboard = editor.textField.getSelectedText();
         editor.textField.setText(cutString(source));
         return true;
-    }
     }
 
     private String cutString(String source) {

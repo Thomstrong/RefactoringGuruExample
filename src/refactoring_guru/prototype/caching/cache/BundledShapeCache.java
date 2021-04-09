@@ -24,8 +24,8 @@ public class BundledShapeCache {
         rectangle.height = 10;
         rectangle.color = "Blue";
 
-        cache.put("Big green circle", circle);
-        cache.put("Medium blue rectangle", rectangle);
+        this.put("Big green circle", circle);
+        this.put("Medium blue rectangle", rectangle);
     }
 
     public Shape put(String key, Shape shape) {

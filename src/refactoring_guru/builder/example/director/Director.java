@@ -44,4 +44,12 @@ public class Director {
         builder.setTransmission(Transmission.MANUAL);
         builder.setGPSNavigator(new GPSNavigator());
     }
+
+    public void constructMotocycle(Builder builder) {
+        builder.setType(Type.MOTOCYCLE);
+        builder.setSeats(2);
+        builder.setEngine(new Engine(1, 0));
+        builder.setTransmission(Transmission.MANUAL);
+
+    }
 }

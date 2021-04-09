@@ -1,14 +1,16 @@
 package refactoring_guru.builder.example;
 
 import refactoring_guru.builder.example.builders.CarBuilder;
+import refactoring_guru.builder.example.builders.CarManualBuilder;
+import refactoring_guru.builder.example.builders.MotorcycleBuilder;
 import refactoring_guru.builder.example.cars.Car;
 import refactoring_guru.builder.example.cars.Manual;
+import refactoring_guru.builder.example.cars.Motorcycle;
 import refactoring_guru.builder.example.director.Director;
-import refactoring_guru.builder.example.builders.CarManualBuilder;
 
 /**
  * EN: Demo class. Everything comes together here.
- *
+ * <p>
  * RU: Демо-класс. Здесь всё сводится воедино.
  */
 public class Demo {
@@ -44,6 +46,13 @@ public class Demo {
         director.constructSportsCar(manualBuilder);
         Manual carManual = manualBuilder.getResult();
         System.out.println("\nCar manual built:\n" + carManual.print());
+
+        // EN: build motorcycle by cwq
+        MotorcycleBuilder motorcycleBuilder = new MotorcycleBuilder();
+        director.constructMotocycle(motorcycleBuilder);
+
+        Motorcycle motorcycle = motorcycleBuilder.getResult();
+        System.out.println("\nMotorcycle built: " + motorcycle.getType());
     }
 
 }

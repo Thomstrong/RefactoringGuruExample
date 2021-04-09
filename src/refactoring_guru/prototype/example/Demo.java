@@ -3,6 +3,7 @@ package refactoring_guru.prototype.example;
 import refactoring_guru.prototype.example.shapes.Circle;
 import refactoring_guru.prototype.example.shapes.Rectangle;
 import refactoring_guru.prototype.example.shapes.Shape;
+import refactoring_guru.prototype.example.shapes.Triangle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,12 @@ public class Demo {
         rectangle.width = 10;
         rectangle.height = 20;
         shapes.add(rectangle);
+
+        Triangle triangle = new Triangle();
+        triangle.a = 3;
+        triangle.b = 4;
+        triangle.c = 5;
+        shapes.add(triangle);
 
         cloneAndCompare(shapes, shapesCopy);
     }
