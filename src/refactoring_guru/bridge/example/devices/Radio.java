@@ -55,4 +55,9 @@ public class Radio implements Device {
         System.out.println("| Current channel is " + channel);
         System.out.println("------------------------------------\n");
     }
+
+    @Override
+    public int getDefaultVolume() {
+        return 0;
+    }
 }

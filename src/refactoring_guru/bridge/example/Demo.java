@@ -1,5 +1,6 @@
 package refactoring_guru.bridge.example;
 
+import refactoring_guru.bridge.example.devices.AirConditioning;
 import refactoring_guru.bridge.example.devices.Device;
 import refactoring_guru.bridge.example.devices.Radio;
 import refactoring_guru.bridge.example.devices.Tv;
@@ -10,12 +11,14 @@ public class Demo {
     public static void main(String[] args) {
         testDevice(new Tv());
         testDevice(new Radio());
+        testDevice(new AirConditioning());
     }
 
     public static void testDevice(Device device) {
         System.out.println("Tests with basic remote.");
         BasicRemote basicRemote = new BasicRemote(device);
         basicRemote.power();
+        basicRemote.volumeUp();
         device.printStatus();
 
         System.out.println("Tests with advanced remote.");

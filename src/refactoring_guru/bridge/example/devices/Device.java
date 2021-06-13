@@ -16,4 +16,6 @@ public interface Device {
     public void setChannel(int channel);
 
     public void printStatus();
+
+    public int getDefaultVolume();
 }
