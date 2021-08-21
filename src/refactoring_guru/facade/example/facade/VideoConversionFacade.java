@@ -16,9 +16,7 @@ public class VideoConversionFacade {
         } else {
             destinationCodec = new MPEG4CompressionCodec();
         }
-        VideoFile buffer = BitrateReader.read(file, sourceCodec);
-        VideoFile intermediateResult = BitrateReader.convert(buffer, destinationCodec);
-        File result = (new AudioMixer()).fix(intermediateResult);
+        File result = Utils.convertFile(file, sourceCodec, destinationCodec);
         System.out.println("VideoConversionFacade: conversion completed.");
         return result;
     }
