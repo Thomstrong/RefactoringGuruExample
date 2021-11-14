@@ -14,6 +14,7 @@ public class UserExistsMiddleware extends Middleware {
         this.server = server;
     }
 
+    @Override
     public boolean check(String email, String password) {
         if (!server.hasEmail(email)) {
             System.out.println("This email is not registered!");

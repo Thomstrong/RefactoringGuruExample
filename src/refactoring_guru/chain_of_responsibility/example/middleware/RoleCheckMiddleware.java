@@ -6,6 +6,7 @@ package refactoring_guru.chain_of_responsibility.example.middleware;
  * RU: Конкретный элемент цепи обрабатывает запрос по-своему.
  */
 public class RoleCheckMiddleware extends Middleware {
+    @Override
     public boolean check(String email, String password) {
         if (email.equals("admin@example.com")) {
             System.out.println("Hello, admin!");

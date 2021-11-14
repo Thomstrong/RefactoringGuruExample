@@ -30,6 +30,7 @@ public class ThrottlingMiddleware extends Middleware {
      * Например, элемент цепи может пропустить все остальные проверки вперёд и
      * запустить свою проверку в конце.
      */
+    @Override
     public boolean check(String email, String password) {
         if (System.currentTimeMillis() > currentTime + 60_000) {
             request = 0;
