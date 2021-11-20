@@ -1,12 +1,9 @@
 package refactoring_guru.command.example.editor;
 
 import refactoring_guru.command.example.commands.*;
-import refactoring_guru.command.example.commands.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Editor {
     public JTextArea textField;
@@ -27,37 +24,20 @@ public class Editor {
         JButton ctrlX = new JButton("Ctrl+X");
         JButton ctrlV = new JButton("Ctrl+V");
         JButton ctrlZ = new JButton("Ctrl+Z");
+        JButton ctrlD = new JButton("Ctrl+D");
         Editor editor = this;
-        ctrlC.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new CopyCommand(editor));
-            }
-        });
-        ctrlX.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new CutCommand(editor));
-            }
-        });
-        ctrlV.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new PasteCommand(editor));
-            }
-        });
-        ctrlZ.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                undo();
-            }
-        });
+        ctrlC.addActionListener(e -> executeCommand(new CopyCommand(editor)));
+        ctrlX.addActionListener(e -> executeCommand(new CutCommand(editor)));
+        ctrlV.addActionListener(e -> executeCommand(new PasteCommand(editor)));
+        ctrlZ.addActionListener(e -> undo());
+        ctrlD.addActionListener(e -> executeCommand(new DeleteLineCommand(editor)));
         buttons.add(ctrlC);
         buttons.add(ctrlX);
         buttons.add(ctrlV);
         buttons.add(ctrlZ);
+        buttons.add(ctrlD);
         content.add(buttons);
-        frame.setSize(450, 200);
+        frame.setSize(500, 200);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
