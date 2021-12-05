@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author caiwenqiang
+ * @author thomstrong
  */
 public class CircleWithRectangle extends BaseShape {
     protected List<Shape> components = new ArrayList<>();

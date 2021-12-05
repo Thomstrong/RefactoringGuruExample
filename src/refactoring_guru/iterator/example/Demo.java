@@ -1,6 +1,7 @@
 package refactoring_guru.iterator.example;
 
 import refactoring_guru.iterator.example.social_networks.Facebook;
+import refactoring_guru.iterator.example.social_networks.WeiBo;
 import refactoring_guru.iterator.example.spammer.SocialSpammer;
 import refactoring_guru.iterator.example.profile.Profile;
 import refactoring_guru.iterator.example.social_networks.LinkedIn;
@@ -22,14 +23,26 @@ public class Demo {
         System.out.println("Please specify social network to target spam tool (default:Facebook):");
         System.out.println("1. Facebook");
         System.out.println("2. LinkedIn");
+        System.out.println("3. Weibo");
         String choice = scanner.nextLine();
 
         SocialNetwork network;
-        if (choice.equals("2")) {
-            network = new LinkedIn(createTestProfiles());
+        switch (choice) {
+            case "1":
+                network = new Facebook(createTestProfiles());
+                break;
+            case "2":
+                network = new LinkedIn(createTestProfiles());
+                break;
+            case "3":
+                network = new WeiBo(createTestProfiles());
+                break;
+            default:
+                network = null;
         }
-        else {
-            network = new Facebook(createTestProfiles());
+
+        if (network == null) {
+            return;
         }
 
         SocialSpammer spammer = new SocialSpammer(network);

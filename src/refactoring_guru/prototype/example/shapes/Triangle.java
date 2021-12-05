@@ -1,7 +1,7 @@
 package refactoring_guru.prototype.example.shapes;
 
 /**
- * @author caiwenqiang
+ * @author thomstrong
  */
 public class Triangle extends Shape {
     public int a;

@@ -1,7 +1,7 @@
 package refactoring_guru.singleton.example.thread_safe;
 
 /**
- * @author caiwenqiang
+ * @author thomstrong
  */
 public class Database {
     private static Database db;
